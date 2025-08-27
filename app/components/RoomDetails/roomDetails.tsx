@@ -5,7 +5,6 @@ import AddReview from "./RoomDetails/addReview";
 import Hosts from "./RoomDetails/hosts";
 import RoomBooking from "./RoomDetails/roomBooking";
 import LocationRoom from "./RoomDetails/locationRoom";
-import Amenities from "./RoomDetails/amenities";
 
 export default function RoomDetails() {
   const roomDetails = {
@@ -94,7 +93,12 @@ export default function RoomDetails() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Amenities */}
           <div className="mt-4">
-          <Amenities roomDetails={roomDetails} />
+            <h2 className="text-xl font-semibold mb-2">{amenities}</h2>
+            <ul className="grid grid-cols-2 gap-2 text-gray-700 list-disc pl-5">
+              {roomDetails?.amenities?.map((item, key) => {
+                return (<li>{item}</li>)
+              })}
+            </ul>
             <LocationRoom roomDetails={roomDetails} />
           </div>
 
